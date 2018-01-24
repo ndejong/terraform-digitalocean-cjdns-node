@@ -1,6 +1,6 @@
 # Terraform + Digital Ocean + cjdns
 
-Terraform module to create a cjdns node and push a locally managed cjdroute.conf
+Terraform module to create a cjdns node and push a locally managed `cjdroute.conf`
 files once the digitalocean-droplet comes online.
  * [cjdns](https://github.com/cjdelisle/cjdns)
  * [hyperboria](https://hyperboria.net/)
@@ -23,8 +23,7 @@ module "node0-sfo2-digitalocean" {
 }
 ```
 
-The module provides a range of other input-variables and useful outputs to tweak
-your digitalocean-droplet as required.
+The module provides a range of other input-variables and useful outputs to tweak your digitalocean-droplet as required.
 
 
 ## Input Variables - Required
@@ -36,9 +35,8 @@ The hostname applied to this cjdns-node droplet.
 The digitalocean region to start this cjdns-node within.
 
 #### user
-The user initial login user to create with passwordless sudo access for this 
-cjdns-node, if empty no account will be created. The root account is always 
-disabled.
+The user initial login user to create with passwordless sudo access for this cjdns-node, if empty no account will be 
+created. The root account is always disabled.
 
 #### user_sshkey
 The sshkey to apply to the initial user account - password based auth is always 
@@ -92,9 +90,9 @@ Default: true
 ## Input Variables - Optional
 
 #### ipfs_version
-If set will additionally install IPFS on this cjdns-node, without any config!
-This is provided as a conveniece only since IPFS is generally a useful use-case 
-for cjdns-nodes to participate in.  IPFS versions can be found [https://dist.ipfs.io/go-ipfs/versions](https://dist.ipfs.io/go-ipfs/versions)
+If set will additionally install IPFS on this cjdns-node, without any config!  This is provided as a convenience only 
+since IPFS is generally a useful use-case for cjdns-nodes to participate in.  IPFS versions can be found 
+[https://dist.ipfs.io/go-ipfs/versions](https://dist.ipfs.io/go-ipfs/versions)
 Default: ""
 
 
