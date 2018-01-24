@@ -43,7 +43,9 @@ variable "image" {
 
 variable "size" {
   description = "The digitalocean droplet size to use for this cjdns-node."
-  default = "1gb"  # 1gb = $10 with 2TB bandwidth per/month as at 2017-12
+  default = "512mb"
+  # 512mb = $5 with 1TB bandwidth per/month as at 2017-12
+  # 1gb   = $10 with 2TB bandwidth per/month as at 2017-12
 }
 
 variable "backups" {
