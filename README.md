@@ -51,38 +51,40 @@ The local `cjdroute.conf` file to push to this cjdns-node droplet.
 The git-commit sha1 to download from github.com/cjdelisle/cjdns then build and install on this cjdns-node. The default 
 is currently [efd7d7f82be405fe47f6806b6cc9c0043885bc2e](https://github.com/cjdelisle/cjdns/tree/efd7d7f82be405fe47f6806b6cc9c0043885bc2e)
 which represents v20, if you wish to use a more recent [crashy](https://github.com/cjdelisle/cjdns/tree/crashey) 
-commit you can specify it here. The more recent (as at 2018-01) commits and versions are listed here for reference:-
-  https://github.com/cjdelisle/cjdns/releases
-   - crashy = 0a08d0812976548ce12db9d80a9c0033fb8a14fc @ 2018-01-10
-   - v20    = efd7d7f82be405fe47f6806b6cc9c0043885bc2e
-   - v19.1  = f4f73cdc120907f9952f7c74abe68394fd2879a0
-   - v19    = 63fdd890d7b9903e386ae094fe4ace548d3988f6
-   - v18    = 6781eddb2b206da6d9e14fa79fab507c9f154acf
-Default: "efd7d7f82be405fe47f6806b6cc9c0043885bc2e"
+commit you can specify it here.
+- Default: "efd7d7f82be405fe47f6806b6cc9c0043885bc2e"
+
+Recent (as at 2018-01) commits and versions are listed here for reference:-
+https://github.com/cjdelisle/cjdns/releases
+ - crashy = 0a08d0812976548ce12db9d80a9c0033fb8a14fc @ 2018-01-10
+ - v20    = efd7d7f82be405fe47f6806b6cc9c0043885bc2e
+ - v19.1  = f4f73cdc120907f9952f7c74abe68394fd2879a0
+ - v19    = 63fdd890d7b9903e386ae094fe4ace548d3988f6
+ - v18    = 6781eddb2b206da6d9e14fa79fab507c9f154acf
 
 ### image
 The digitalocean image to use as the base for this cjdns-node.
-Default: "ubuntu-16-04-x64"
+ - Default: "ubuntu-16-04-x64"
 
 ### size
 The digitalocean droplet size to use for this cjdns-node.
-Default: "1gb"
+ - Default: "1gb"
 
 ### backups
 Enable/disable droplet backup functionality on this cjdns-node.
-Default: false
+ - Default: false
 
 ### monitoring
 Enable/disable droplet monitoring functionality on this cjdns-node.
-Default: true
+ - Default: true
 
 ### ipv6
 Enable/disable getting a public IPv6 on this digitalocean-droplet.
-Default: true
+ - Default: true
 
 ### private_networking
 Enable/disable digitalocean private-networking functionality on this cjdns-node.
-Default: true
+ - Default: true
 
 
 ## Input Variables - Optional
@@ -91,13 +93,13 @@ Default: true
 If set will additionally install IPFS on this cjdns-node, without any config!  This is provided as a convenience only 
 since IPFS is generally a useful use-case for cjdns-nodes to participate in.  IPFS versions can be found 
 [https://dist.ipfs.io/go-ipfs/versions](https://dist.ipfs.io/go-ipfs/versions)
-Default: ""
+ - Default: ""
 
 
 ## Outputs
 
 ### hostname
-the hostname given to this cjdns-node.
+The hostname given to this cjdns-node.
 
 ### region
 The digitalocean region this cjdns-node is within
