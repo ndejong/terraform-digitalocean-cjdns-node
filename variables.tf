@@ -65,7 +65,7 @@ variable "ipv6" {
 
 variable "private_networking" {
   description = "Enable/disable digitalocean private-networking functionality on this cjdns-node."
-  default = true
+  default = false
 }
 
 # optional variables
