@@ -12,6 +12,10 @@ if [ -f '/etc/systemd/resolved.conf' ]; then
     systemctl restart systemd-resolved.service
 fi
 
+echo '*************************' > /etc/motd
+echo '*** build in progress ***' >> /etc/motd
+echo '*************************' >> /etc/motd
+
 # packages
 apt-get update
 apt-get -y install python nodejs htop iftop tree jq traceroute nmap tcpdump netcat figlet
