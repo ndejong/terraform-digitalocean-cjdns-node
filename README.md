@@ -33,6 +33,10 @@ module "cjdns-node" {
 }
 ```
 
+NB: the required build cycles can take ~10 minutes to complete, do a `tail -f /var/log/cloud-init-output.log` 
+to watch the progress - you will recognise when everything is complete by the ascii-art hostname when ssh'ing 
+into the host.
+
 The module provides a range of other input-variables and useful outputs to tweak your digitalocean-droplet as required.
 
 ## Input Variables - Required
