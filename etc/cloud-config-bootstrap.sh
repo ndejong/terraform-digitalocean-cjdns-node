@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-# sshd
-sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
-service ssh restart
+# sshd - PermitRootLogin
+if [ -f '/etc/ssh/sshd_config' ]; then
+    sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+    service ssh restart
+fi
 
-# build in progress
-echo '' > /etc/motd
-echo '  *******************************' >> /etc/motd
-echo '  *** cjdns build in progress ***' >> /etc/motd
-echo '  *******************************' >> /etc/motd
-echo '' >> /etc/motd
+# resolved - LLMNR
+if [ -f '/etc/systemd/resolved.conf' ]; then
+    sed -i -e '/^#LLMNR/s/^.*$/LLMNR=no/' /etc/systemd/resolved.conf
+    systemctl restart systemd-resolved.service
+fi
 
 # packages
 apt-get update
