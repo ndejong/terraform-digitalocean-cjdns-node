@@ -7,24 +7,33 @@ files once the digitalocean-droplet comes online.
  * [digital ocean](https://www.digitalocean.com/)
 
 ## Usage
-Establishing up a cjdns node on Digital Ocean can be made incredibly easy with 
-this Terraform module as shown in the minimal example below:-
-
+Establishing up a cjdns node (running v20) on Digital Ocean can be made incredibly easy with this Terraform 
+module as shown in the minimal example below:-
 ```hcl
-module "node0-sfo2-digitalocean" {
-  source = "../../modules/terraform-digitalocean-cjdns-node"
-  size = "512mb"
-  region = "sfo2"
+module "cjdns-node" {
+  source = "ndejong/cjdns-node/digitalocean"
   hostname = "node0-sfo2-digitalocean"
+  region = "sfo2"
   user = "<username>"
   user_sshkey = "<ssh-public-key>"
-  cjdns_commit = "0a08d0812976548ce12db9d80a9c0033fb8a14fc"  # crashy @ 2018-01-10
+  cjdroute_config = "${path.cwd}/../../data/cjdroute/node0-sfo2-digitalocean.json"
+}
+```
+
+You can very easily start a cjdns-crashy release by specifying the git-commit as shown:-
+```hcl
+module "cjdns-node" {
+  source = "ndejong/cjdns-node/digitalocean"
+  hostname = "node0-sfo2-digitalocean"
+  region = "sfo2"
+  user = "<username>"
+  user_sshkey = "<ssh-public-key>"
+  cjdns_commit = "ec3c3126943d7a95d2b1c2fe95f047883e64214b"  # crashy @ 2018-02-03
   cjdroute_config = "${path.cwd}/../../data/cjdroute/node0-sfo2-digitalocean.json"
 }
 ```
 
 The module provides a range of other input-variables and useful outputs to tweak your digitalocean-droplet as required.
-
 
 ## Input Variables - Required
 
@@ -49,13 +58,14 @@ The local `cjdroute.conf` file to push to this cjdns-node droplet.
 
 ### cjdns_commit
 The git-commit sha1 to download from github.com/cjdelisle/cjdns then build and install on this cjdns-node. The default 
-is currently [efd7d7f82be405fe47f6806b6cc9c0043885bc2e](https://github.com/cjdelisle/cjdns/tree/efd7d7f82be405fe47f6806b6cc9c0043885bc2e)
+is currently [ec3c3126943d7a95d2b1c2fe95f047883e64214b](https://github.com/cjdelisle/cjdns/tree/ec3c3126943d7a95d2b1c2fe95f047883e64214b)
 which represents v20, if you wish to use a more recent [crashy](https://github.com/cjdelisle/cjdns/tree/crashey) 
 commit you can specify it here.
 - Default: "efd7d7f82be405fe47f6806b6cc9c0043885bc2e"
 
-Recent (as at 2018-01) commits and versions are listed here for reference:-
+Recent (as at 2018-02) commits and versions are listed here for reference:-
 https://github.com/cjdelisle/cjdns/releases
+ - crashy = ec3c3126943d7a95d2b1c2fe95f047883e64214b @ 2018-02-03
  - crashy = 0a08d0812976548ce12db9d80a9c0033fb8a14fc @ 2018-01-10
  - v20    = efd7d7f82be405fe47f6806b6cc9c0043885bc2e
  - v19.1  = f4f73cdc120907f9952f7c74abe68394fd2879a0
@@ -68,7 +78,7 @@ The digitalocean image to use as the base for this cjdns-node.
 
 ### size
 The digitalocean droplet size to use for this cjdns-node.
- - Default: "1gb"
+ - Default: "512mb"
 
 ### backups
 Enable/disable droplet backup functionality on this cjdns-node.
