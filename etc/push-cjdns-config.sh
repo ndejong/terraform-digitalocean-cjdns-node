@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Copyright (c) 2018 Verb Networks Pty Ltd <contact [at] verbnetworks.com>
+#  - All rights reserved.
+#
+# Apache License v2.0
+#  - http://www.apache.org/licenses/LICENSE-2.0
+
 LOCAL_CONFIG=${1}
 REMOTE_HOST=${2}
 

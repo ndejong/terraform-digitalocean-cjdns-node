@@ -11,7 +11,7 @@ Establishing up a cjdns node (running v20) on Digital Ocean can be made incredib
 module as shown in the minimal example below:-
 ```hcl
 module "cjdns-node" {
-  source = "ndejong/cjdns-node/digitalocean"
+  source = "verbnetworks/cjdns-node/digitalocean"
   hostname = "node0-sfo2-digitalocean"
   region = "sfo2"
   user = "<username>"
@@ -23,7 +23,7 @@ module "cjdns-node" {
 You can very easily start a cjdns-crashy release by specifying the git-commit as shown:-
 ```hcl
 module "cjdns-node" {
-  source = "ndejong/cjdns-node/digitalocean"
+  source = "verbnetworks/cjdns-node/digitalocean"
   hostname = "node0-sfo2-digitalocean"
   region = "sfo2"
   user = "<username>"
@@ -138,7 +138,7 @@ The public digitalocean-droplet IPv6 address of this cjdns-node.
 
 
 ## Authors
-Module managed by [Nicholas de Jong](https://github.com/ndejong).
+Module managed by [Verb Networks](https://github.com/verbnetworks)
 
 ## License
 Apache 2 Licensed. See LICENSE for full details.

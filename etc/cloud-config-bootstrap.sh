@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# Copyright (c) 2018 Verb Networks Pty Ltd <contact [at] verbnetworks.com>
+#  - All rights reserved.
+#
+# Apache License v2.0
+#  - http://www.apache.org/licenses/LICENSE-2.0
+
 # sshd - PermitRootLogin
 if [ -f '/etc/ssh/sshd_config' ]; then
     sed -i -e '/^PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
